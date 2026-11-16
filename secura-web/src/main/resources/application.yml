@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: secura-web
+
+  servlet.multipart: { max-file-size: 512MB, max-request-size: 512MB }
+
+server:
+  address: 127.0.0.1          # no login yet: keep local-only
+  servlet.session.cookie: { http-only: true, secure: false, same-site: strict }  # set secure: true behind TLS
+
+secura:
+  master-dir: ./secura-data    # all folder work is confined here
+  allowed-extensions: txt,md,pdf,docx,doc

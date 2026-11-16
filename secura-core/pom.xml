@@ -58,16 +58,14 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
 
-	<build>
-        <plugins>
-            <!-- Produces an executable Spring Boot JAR -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+		<!-- Source: https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk18on</artifactId>
+			<version>1.87</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
 
 </project>

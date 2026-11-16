@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>SECURA</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem;color:#1b2430;background:#f6f8fa}
+h1{margin-bottom:0}.tag{color:#5b6b7b;margin-top:.2rem}
+section{background:#fff;border:1px solid #d8dee4;border-radius:8px;padding:1rem 1.25rem;margin:1rem 0}
+h2{margin-top:0;font-size:1.1rem}textarea,input{width:100%;box-sizing:border-box;padding:.5rem;margin:.25rem 0 .6rem;border:1px solid #b6bfc8;border-radius:4px}
+button{background:#0b5cad;color:#fff;border:0;border-radius:4px;padding:.5rem 1rem;margin-right:.4rem;cursor:pointer}
+.ok{background:#e6f4ea;border:1px solid #9bd3ae;padding:.6rem;border-radius:4px;white-space:pre-wrap;word-break:break-all}
+.err{background:#fdecea;border:1px solid #f1a9a0;padding:.6rem;border-radius:4px}
+</style></head><body>
+<h1>SECURA</h1><p class="tag">Your Information. Your Keys. Your Control.</p>
+<div class="err" th:if="${error}" th:text="${error}"></div>
+
+<div class="ok"
+     th:if="${success}"
+     th:text="${success}">
+</div>
+
+<div class="err"
+     th:if="${error}"
+     th:text="${error}">
+</div>
+
+<div class="ok"
+     th:if="${result}"
+     th:text="${result}">
+</div>
+
+<section><h2>Message</h2>
+<form method="post">
+ <textarea name="text" rows="5" placeholder="Message or pasted ciphertext" required></textarea>
+ <input type="password" name="password" placeholder="Password" required autocomplete="off">
+ <button th:formaction="@{/message/encrypt}">Encrypt</button><button th:formaction="@{/message/decrypt}">Decrypt</button>
+</form></section>
+
+<section><h2>File (txt, md, pdf, docx, doc)</h2>
+<form method="post" enctype="multipart/form-data">
+ <input type="file" name="file" required>
+ <input type="password" name="password" placeholder="Password" required autocomplete="off">
+ <button th:formaction="@{/file/encrypt}">Encrypt file</button><button th:formaction="@{/file/decrypt}">Decrypt file</button>
+</form></section>
+
+<section><h2>Folder (inside master directory)</h2>
+<form method="post">
+ <input name="path" placeholder="Folder to encrypt, e.g. reports/2026  |  or .secura file to decrypt" required>
+ <input name="target" placeholder="Decrypt into new folder, e.g. restored/2026 (decrypt only)">
+ <input type="password" name="password" placeholder="Password" required autocomplete="off">
+ <button th:formaction="@{/folder/encrypt}">Encrypt folder</button><button th:formaction="@{/folder/decrypt}">Decrypt folder</button>
+</form></section>
+</body></html>

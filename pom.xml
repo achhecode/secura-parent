@@ -26,6 +26,13 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+
+			<!-- Secura Core Module -->
+			<dependency>
+				<groupId>com.achhecode</groupId>
+				<artifactId>secura-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
